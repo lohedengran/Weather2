@@ -1,0 +1,99 @@
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.main {
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+#current-weather {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffdf6b), to(#8be8d7));
+  background: linear-gradient(to bottom, #ffdf6b, #8be8d7);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.search-box {
+  min-height: 100%;
+  margin-bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.search-box .search-bar {
+  display: block;
+  color: #636363;
+  width: 80%;
+  padding: 15px;
+  font-size: 20px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+.search-box .search-bar:focus {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.2);
+}
+
+.location-box .location {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.location-box .date {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+}
+
+.weather-box {
+  text-align: center;
+}
+
+.weather-box .temp {
+  display: inline-block;
+  padding: 10px 25px;
+  color: #fff;
+  font-size: 102px;
+  font-weight: 900;
+  text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  margin: 30px 0px;
+  -webkit-box-shadow: 3px 6px rgba(0, 0, 0, 0.25);
+          box-shadow: 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+.weather-box .weather {
+  color: #fff;
+  font-size: 48px;
+  font-weight: 700;
+  font-style: italic;
+  text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
+}
+/*# sourceMappingURL=index.css.map */

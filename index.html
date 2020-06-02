@@ -3,69 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather forecast</title>
+    <title>Weather</title>
     <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/index.css" />
+    <!-- <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
     />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/minty/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-HqaYdAE26lgFCJsUF9TBdbZf7ygr9yPHtxtg37JshqVQi6CCAo6Qvwmgc5xclIiV"
+      crossorigin="anonymous"
+    /> -->
   </head>
   <body>
-    <!--current weather-->
-    <div id="app" class="container mt-3">
-      <div class="search-box">
-        <input type="text" placeholder="Search..." v-model="query" />
-      </div>
+    <main class="main">
+      <!--current weather-->
+      <div id="current-weather">
+        <div class="search-box">
+          <input
+            type="text"
+            class="search-bar"
+            placeholder="Search..."
+            v-model="location"
+            @keypress="getWeather"
+          />
+        </div>
 
-      <button v-on:click="getWeather" type="submit" class="btn btn-primary">
-        Get current weather
-      </button>
-
-      <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
-        <div class="location-box">
-          <div class="location">
-            {{ weather.name}}, {{weather.sys.country}}
+        <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
+          <div class="location-box">
+            <div class="location">
+              {{ weather.name}}, {{weather.sys.country}}
+            </div>
+            <div class="date">{{dateBuilder()}}</div>
           </div>
-          <div class="date">{{dateBuilder()}}</div>
-        </div>
-        <div class="weather-box">
-          <div class="temp">{{Math.round(weather.main.temp)}}°</div>
-          <div class="feels-like">
-            Feels like: {{Math.round(weather.main.feels_like)}}°
+          <div class="weather-box">
+            <div class="temp">{{Math.round(weather.main.temp)}}°</div>
+            <div class="feels-like">
+              Feels like {{Math.round(weather.main.feels_like)}}°
+            </div>
+            <div class="weather">{{weather.weather[0].main}}</div>
           </div>
-          <div class="weather">{{weather.weather[0].main}}</div>
         </div>
       </div>
-    </div>
-    <!--weather forecast-->
-    <div id="weather-forecast" class="container mt-3">
-      <div class="search-box">
-        <input type="text" placeholder="Search..." v-model="query" />
-      </div>
-      <button v-on:click="getForecast" type="submit" class="btn btn-primary">
-        Get forecast
-      </button>
-
-      <div
-        class="forecast-wrap"
-        v-if="typeof forecast.temperature != 'undefined'"
-      >
-        <div class="location-box">
-          <div class="location">{{city.name}}, {{city.country}}</div>
-          <div class="date">{{dateBuilder()}}</div>
-        </div>
-
-        <div class="forecast-box">
-          <div class="temp">{{list.main.temp}}°</div>
-          <div class="feels-like"></div>
-          <div class="weather">Sunny</div>
-        </div>
-      </div>
-    </div>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-json/2.6.0/jquery.json.min.js"></script> -->
     <script src="src/main.js"></script>
   </body>
