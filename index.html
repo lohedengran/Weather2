@@ -3,13 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather</title>
+    <title>Weather forecast</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles/index.css" />
-    <!-- <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
@@ -20,39 +15,122 @@
       rel="stylesheet"
       integrity="sha384-HqaYdAE26lgFCJsUF9TBdbZf7ygr9yPHtxtg37JshqVQi6CCAo6Qvwmgc5xclIiV"
       crossorigin="anonymous"
-    /> -->
+    />
+    <link rel="stylesheet" href="styles/index.css" />
   </head>
   <body>
-    <main class="main">
-      <!--current weather-->
-      <div id="current-weather">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary flex-column">
+      <a class="navbar-brand" href="#current-weather">Current weather</a>
+      <br />
+      <a class="navbar-brand" href="#app">5 day forecast</a>
+    </nav>
+    <!--current weather-->
+    <div id="current-weather" class="container mt-3">
+      <div class="search-box">
+        <input
+          class="search-bar"
+          type="text"
+          placeholder="Search..."
+          v-model="query"
+          @keypress="getWeather"
+        />
+      </div>
+
+      <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
+        <div class="location-box">
+          <div class="location">
+            {{ weather.name}}, {{weather.sys.country}}
+          </div>
+          <div class="date">{{dateBuilder()}}</div>
+        </div>
+        <div class="weather-box">
+          <div class="temp">{{Math.round(weather.main.temp)}}°</div>
+          <div class="feels-like">
+            Feels like {{Math.round(weather.main.feels_like)}}°
+          </div>
+          <div class="weather">{{weather.weather[0].main}}</div>
+        </div>
+      </div>
+      <!-- <div class="not-found" v-if="typeof weather.main == 'undefined'">
+        <p>sorry location not found</p>
+      </div> -->
+    </div>
+
+    <!-- weather forecast 2 june-->
+
+    <!-- <div id="forecast" class="container mt-3">
+      <div class="search-box">
+        <input
+          class="search-bar"
+          type="text"
+          placeholder="Search..."
+          v-model="query"
+          @keypress="getForecast"
+        />
+      </div>
+    </div> -->
+
+    <!--weather forecast-->
+    <!-- <div id="weather-forecast" class="container mt-3">
+      <div class="search-box">
+        <input type="text" placeholder="Search..." v-model="query" />
+      </div>
+      <button v-on:click="getForecast" type="submit" class="btn btn-primary">
+        Get forecast
+      </button>
+
+      <div class="forecast-wrap" v-if="typeof forecast.list != 'undefined'">
+        <div class="location-box">
+          <div class="location">
+            {{forecast.city.name}}, {{forecast.city.country}}
+          </div>
+          <div class="date">{{dateBuilder()}}</div>
+        </div>
+
+        <div class="forecast-box">
+          <div class="temp" v-for="value in object">
+            {{Math.round(forecast.list[0].main.temp)}}°
+          </div>
+          <div class="feels-like">
+            Feels like {{Math.round(forecast.list[0].main.feels_like)}}°
+          </div>
+          <div class="weather">{{forecast.list[1].weather.main}}</div>
+        </div>
+      </div>
+    </div> -->
+
+    <!--5 day forecast-->
+    <div id="app">
+      <div class="container">
         <div class="search-box">
           <input
-            type="text"
             class="search-bar"
-            placeholder="Search..."
-            v-model="location"
-            @keypress="getWeather"
+            type="text"
+            placeholder="Search.."
+            v-model="query"
+            @keypress="getForecast"
           />
         </div>
 
-        <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
-          <div class="location-box">
-            <div class="location">
-              {{ weather.name}}, {{weather.sys.country}}
-            </div>
-            <div class="date">{{dateBuilder()}}</div>
-          </div>
-          <div class="weather-box">
-            <div class="temp">{{Math.round(weather.main.temp)}}°</div>
-            <div class="feels-like">
-              Feels like {{Math.round(weather.main.feels_like)}}°
-            </div>
-            <div class="weather">{{weather.weather[0].main}}</div>
+        <div class="card" style="width: 18rem;" v-for="item in list">
+          <div class="card-body">
+            <h5 class="card-title">{{Math.round(list[0].main.temp)}}</h5>
+            <p class="card-text">{{list[0].dt_txt}}</p>
           </div>
         </div>
       </div>
-    </main>
+    </div>
+
+    <!-- forecast test-->
+    <!-- <div id="forecast">
+      <input type="text" placeholder="Search" v-model="query" />
+      <button v-on:click="getForecast">Get forecast</button>
+      <ul>
+        <li v-for="item in forecast">
+          {{item.main}}
+        </li>
+      </ul>
+    </div> -->
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>

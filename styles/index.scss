@@ -2,9 +2,16 @@ $yellow: #ffdf6b;
 $blue: #8be8d7;
 $dark-green: #264653;
 $grey: #636363;
+$pink: #f08080;
+
+html {
+  scroll-behavior: smooth;
+}
+#current-weather {
+  min-height: 100vh;
+}
 
 body {
-  font-family: "Roboto", sans-serif;
   margin: 0 auto;
   box-sizing: border-box;
 }
@@ -12,11 +19,16 @@ body {
   margin: 0 auto;
   min-height: 100vh;
 }
+
 #current-weather {
   background: linear-gradient(to bottom, $yellow, $blue);
   transition: 0.4s;
-  min-height: 100vh;
+  min-height: 80vh;
   padding: 30px;
+  border-radius: 20px;
+}
+#current-weather.warm {
+  background: linear-gradient(to bottom, $yellow, $pink);
 }
 .search-box {
   min-height: 100%;
@@ -28,7 +40,7 @@ body {
 .search-box .search-bar {
   display: block;
   color: $grey;
-  width: 80%;
+  width: 70%;
   padding: 15px;
   font-size: 20px;
   appearance: none;
@@ -79,4 +91,14 @@ body {
   font-weight: 700;
   font-style: italic;
   text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
+}
+.weather-box .feels-like {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+#app {
+  min-height: 100vh;
 }
