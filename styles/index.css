@@ -13,6 +13,27 @@ body {
   min-height: 100vh;
 }
 
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 30vh;
+  background: -webkit-gradient(linear, left bottom, left top, from(#ffdf6b), to(#8be8d7));
+  background: linear-gradient(to top, #ffdf6b, #8be8d7);
+}
+
+h1 {
+  color: #fff;
+  font-size: 50px;
+  text-shadow: 1px 3px rgba(0, 0, 0, 0.25);
+}
+
 #current-weather {
   background: -webkit-gradient(linear, left top, left bottom, from(#ffdf6b), to(#8be8d7));
   background: linear-gradient(to bottom, #ffdf6b, #8be8d7);
@@ -20,6 +41,12 @@ body {
   transition: 0.4s;
   min-height: 80vh;
   padding: 30px;
+}
+
+h2 {
+  color: #fff;
+  text-shadow: 1px 3px rgba(0, 0, 0, 0.25);
+  margin: 10px;
 }
 
 .search-box {

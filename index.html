@@ -20,16 +20,16 @@
     />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary flex-column">
+    <header class=""><h1>What's the weather like?</h1></header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <a class="navbar-brand" href="#current-weather">Current weather</a>
       <br />
       <a class="navbar-brand" href="#app">5 day forecast</a>
     </nav>
+
     <!--current weather-->
-    <div
-      id="current-weather"
-      :class="typeof weather.main != 'undefined' && weather.main.temp > 16 ? 'warm' : ''"
-    >
+    <div id="current-weather">
+      <div class="text-center"><h2>Current weather</h2></div>
       <div class="search-box">
         <input
           class="search-bar"
@@ -60,6 +60,7 @@
     <!--5 day forecast-->
     <div id="app">
       <div class="container mx-auto p-3">
+        <div class="text-center"><h2>5 day forecast</h2></div>
         <div class="search-box">
           <input
             class="search-bar"
