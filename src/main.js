@@ -161,7 +161,6 @@ const currentWeather = new Vue({
 const app = new Vue({
   el: "#app",
   data: {
-    // forecast: [],
     list: [],
     // dates: [],
     // temps: [],

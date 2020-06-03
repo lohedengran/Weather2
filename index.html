@@ -25,7 +25,10 @@
       <a class="navbar-brand" href="#app">5 day forecast</a>
     </nav>
     <!--current weather-->
-    <div id="current-weather" class="container mt-3">
+    <div
+      id="current-weather"
+      :class="typeof weather.main != 'undefined' && weather.main.temp > 16 ? 'warm' : ''"
+    >
       <div class="search-box">
         <input
           class="search-bar"
@@ -112,14 +115,35 @@
           />
         </div>
 
-        <div class="card" style="width: 18rem;" v-for="item in list">
-          <div class="card-body">
-            <h5 class="card-title">{{Math.round(list[0].main.temp)}}</h5>
-            <p class="card-text">{{list[0].dt_txt}}</p>
-          </div>
-        </div>
+        <!-- <div class="card" style="width: 18rem;"> -->
+        <!-- <div class="card-body">
+            <h5 class="card-title" v-for="dt_txt in list">
+              {{list[0].dt_txt}}
+            </h5>
+            <p class="card-text"></p>
+          </div> -->
+        <!-- </div> -->
+        <ul>
+          <li class="text-center" v-for="item in list">
+            {{item.dt_txt}} - {{Math.round(item.main.temp)}}°
+          </li>
+        </ul>
       </div>
     </div>
+    <!-- <table class="table table-sm">
+      <thead>
+        <tr>
+          <th scope="col">Date and time</th>
+          <th scope="col">Temperature</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td v-for="item in list">{{item.dt_txt}}</td>
+          <td v-for="item in list">{{Math.round(item.main.temp)}}°</td>
+        </tr>
+      </tbody>
+    </table> -->
 
     <!-- forecast test-->
     <!-- <div id="forecast">

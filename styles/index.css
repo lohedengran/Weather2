@@ -2,10 +2,6 @@ html {
   scroll-behavior: smooth;
 }
 
-#current-weather {
-  min-height: 100vh;
-}
-
 body {
   margin: 0 auto;
   -webkit-box-sizing: border-box;
@@ -24,12 +20,6 @@ body {
   transition: 0.4s;
   min-height: 80vh;
   padding: 30px;
-  border-radius: 20px;
-}
-
-#current-weather.warm {
-  background: -webkit-gradient(linear, left top, left bottom, from(#ffdf6b), to(#f08080));
-  background: linear-gradient(to bottom, #ffdf6b, #f08080);
 }
 
 .search-box {
@@ -70,7 +60,7 @@ body {
 
 .location-box .location {
   color: #fff;
-  font-size: 32px;
+  font-size: 38px;
   font-weight: 500;
   text-align: center;
   text-shadow: 1px 3px rgba(0, 0, 0, 0.25);
@@ -78,7 +68,7 @@ body {
 
 .location-box .date {
   color: #fff;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 300;
   font-style: italic;
   text-align: center;
@@ -104,10 +94,10 @@ body {
 
 .weather-box .weather {
   color: #fff;
-  font-size: 48px;
-  font-weight: 700;
+  font-size: 32px;
+  font-weight: 500;
   font-style: italic;
-  text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
+  text-shadow: 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .weather-box .feels-like {
@@ -119,5 +109,13 @@ body {
 
 #app {
   min-height: 100vh;
+  padding: 30px;
+  background: -webkit-gradient(linear, left bottom, left top, from(#ffdf6b), to(#8be8d7));
+  background: linear-gradient(to top, #ffdf6b, #8be8d7);
+}
+
+li {
+  color: #fff;
+  list-style: none;
 }
 /*# sourceMappingURL=index.css.map */
