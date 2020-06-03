@@ -20,7 +20,6 @@ const currentWeather = new Vue({
 
           .then(this.setResults);
       }
-      // console.log(this.query);
     },
 
     setResults(results) {

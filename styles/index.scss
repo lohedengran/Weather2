@@ -25,14 +25,10 @@ body {
   min-height: 80vh;
   padding: 30px;
 }
-// #current-weather.warm {
-//   background: linear-gradient(to bottom, $yellow, $pink);
-// }
 
 .search-box {
   min-height: 100%;
   margin-bottom: 30px;
-
   display: flex;
   justify-content: center;
 }
@@ -68,6 +64,7 @@ body {
   font-weight: 300;
   font-style: italic;
   text-align: center;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.25);
 }
 .weather-box {
   text-align: center;
@@ -96,14 +93,15 @@ body {
   font-size: 20px;
   font-weight: 400;
   font-style: italic;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.25);
 }
 
 #app {
   min-height: 100vh;
-  padding: 30px;
-  background: linear-gradient(to top, $yellow, $blue);
+  background: linear-gradient(to bottom, $blue, $yellow);
 }
-li {
+
+.table {
   color: #fff;
-  list-style: none;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.25);
 }

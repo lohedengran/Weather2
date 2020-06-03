@@ -72,6 +72,7 @@ body {
   font-weight: 300;
   font-style: italic;
   text-align: center;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.25);
 }
 
 .weather-box {
@@ -105,17 +106,17 @@ body {
   font-size: 20px;
   font-weight: 400;
   font-style: italic;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.25);
 }
 
 #app {
   min-height: 100vh;
-  padding: 30px;
-  background: -webkit-gradient(linear, left bottom, left top, from(#ffdf6b), to(#8be8d7));
-  background: linear-gradient(to top, #ffdf6b, #8be8d7);
+  background: -webkit-gradient(linear, left top, left bottom, from(#8be8d7), to(#ffdf6b));
+  background: linear-gradient(to bottom, #8be8d7, #ffdf6b);
 }
 
-li {
+.table {
   color: #fff;
-  list-style: none;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.25);
 }
 /*# sourceMappingURL=index.css.map */
